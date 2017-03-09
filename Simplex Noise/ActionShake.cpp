@@ -1,8 +1,8 @@
 #include "ActionShake.h"
 
-const float ActionShake::F2 = 0.366025403f;
-const float ActionShake::G2 = 0.211324865f;
-int ActionShake::perm[512] = { 151,160,137,91,90,15,
+const float Shake::F2 = 0.366025403f;
+const float Shake::G2 = 0.211324865f;
+int Shake::perm[512] = { 151,160,137,91,90,15,
 131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,
 190, 6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,177,33,
 88,237,149,56,87,174,20,125,136,171,168, 68,175,74,165,71,134,139,48,27,166,
@@ -28,14 +28,14 @@ int ActionShake::perm[512] = { 151,160,137,91,90,15,
 251,34,242,193,238,210,144,12,191,179,162,241, 81,51,145,235,249,14,239,107,
 49,192,214, 31,181,199,106,157,184, 84,204,176,115,121,50,45,127, 4,150,254,
 138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180 };
-const int ActionShake::grad3[12][3] =
+const int Shake::grad3[12][3] =
 { { 1,1,0 },{ -1,1,0 },{ 1,-1,0 },{ -1,-1,0 },
 { 1,0,1 },{ -1,0,1 },{ 1,0,-1 },{ -1,0,-1 },
 { 0,1,1 },{ 0,-1,1 },{ 0,1,-1 },{ 0,-1,-1 } };
 
-ActionShake* ActionShake::create(float duration, float speed, float magnitude)
+Shake* Shake::create(float duration, float speed, float magnitude)
 {
-	ActionShake *ret = new (std::nothrow) ActionShake();
+	Shake *ret = new (std::nothrow) Shake();
 
 	if (ret && ret->initWithDuration(duration, speed, magnitude))
 	{
@@ -47,7 +47,7 @@ ActionShake* ActionShake::create(float duration, float speed, float magnitude)
 	return nullptr;
 }
 
-bool ActionShake::initWithDuration(float duration, float speed, float magnitude)
+bool Shake::initWithDuration(float duration, float speed, float magnitude)
 {
 	bool ret = false;
 
@@ -61,18 +61,18 @@ bool ActionShake::initWithDuration(float duration, float speed, float magnitude)
 	return ret;
 }
 
-ActionShake* ActionShake::clone() const
+Shake* Shake::clone() const
 {
-	return ActionShake::create(_duration, _speed, _magnitude);
+	return Shake::create(_duration, _speed, _magnitude);
 }
 
-void ActionShake::startWithTarget(cocos2d::Node* target)
+void Shake::startWithTarget(cocos2d::Node* target)
 {
 	cocos2d::ActionInterval::startWithTarget(target);
 	this->_randomStart = cocos2d::RandomHelper::random_real(-1000.0f, 1000.0f);
 }
 
-void ActionShake::update(float time)
+void Shake::update(float time)
 {
 	if (this->_target == nullptr)
 		return;

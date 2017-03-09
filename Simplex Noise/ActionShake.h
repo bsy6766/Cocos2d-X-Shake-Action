@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 
-class ActionShake : public cocos2d::ActionInterval
+class Shake : public cocos2d::ActionInterval
 {
 public:
 	/**
@@ -14,12 +14,12 @@ public:
 	* @param magnitude The power of shaking
 	* @return An autoreleased MoveBy object.
 	*/
-	static ActionShake* create(float duration, float speed, float magnitude);
+	static Shake* create(float duration, float speed, float magnitude);
 
 	//
 	// Overrides
 	//
-	virtual ActionShake* clone() const override;
+	virtual Shake* clone() const override;
 	virtual void startWithTarget(cocos2d::Node* target) override;
 
 	/**
@@ -28,8 +28,8 @@ public:
 	virtual void update(float time) override;
 
 CC_CONSTRUCTOR_ACCESS:
-	ActionShake() {};
-	virtual ~ActionShake() {};
+	Shake() {};
+	virtual ~Shake() {};
 
 	bool initWithDuration(float duration, float speed, float magnitude);
 
@@ -133,7 +133,7 @@ protected:
 	}
 	
 private:
-	CC_DISALLOW_COPY_AND_ASSIGN(ActionShake);
+	CC_DISALLOW_COPY_AND_ASSIGN(Shake);
 
 	// Pre calculated values
 	static const float F2;	//F2 = 0.5f * (sqrt(3.0f) - 1.0f)) = 0.366025403f
