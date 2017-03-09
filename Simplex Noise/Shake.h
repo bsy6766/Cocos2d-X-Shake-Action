@@ -1,5 +1,5 @@
-#ifndef ACTION_SHAKE_H
-#define ACTION_SHAKE_H
+#ifndef SHAKE_H
+#define SHAKE_H
 
 #include "cocos2d.h"
 

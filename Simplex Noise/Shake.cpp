@@ -1,4 +1,4 @@
-#include "ActionShake.h"
+#include "Shake.h"
 
 const float Shake::F2 = 0.366025403f;
 const float Shake::G2 = 0.211324865f;
