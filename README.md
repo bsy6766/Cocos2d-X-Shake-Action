@@ -3,6 +3,15 @@
 ## What is this?
 A shaking action for Cocos2d-x. It shakes the cocos2d node.
 
+## How and what to use
+I recommend you to use Simplex Noise version than Perlin Noise.<br>
+Clone the repo and copy source code to your project.<br>
+
+```cpp
+auto sprite = cocos2d::Sprite::create("HelloWorld.png");
+sprite->runAction(ActionShake::create(2.0f/*Duration*/, 40.0f/*speed*/, 40.0f/*magnitude*/));
+```
+
 ## Preview
 ![Preview](https://github.com/bsy6766/CCShakeAction/blob/master/preview.gif)<br>
 i.e.) Duration = 2.0f, Magnitude = 40.0f, Speed = 40.0f
